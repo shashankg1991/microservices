@@ -10,7 +10,7 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092
     topic:
-      userCreated: ORDER_REQUEST_RECEIVED_TOPIC
+      orderRequested: ORDERREQUESTRECEIVEDTOPIC
 security:
   basic:
     enabled: false

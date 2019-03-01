@@ -5,7 +5,7 @@ import com.nagarro.nagpassignment.ordermicroservice.entity.Order;
 import java.util.List;
 
 public interface OrderDao {
-    void addOrder();
+    int addOrder();
 
     List<Order> getOrders();
 

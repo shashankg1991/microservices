@@ -2,6 +2,8 @@ package com.nagarro.nagpassignment.ordermicroservice.service.impl;
 
 import com.nagarro.nagpassignment.ordermicroservice.dao.OrderDao;
 import com.nagarro.nagpassignment.ordermicroservice.entity.Order;
+import com.nagarro.nagpassignment.ordermicroservice.rabbitmq.service.RabbitMQMessagingService;
+import com.nagarro.nagpassignment.ordermicroservice.rabbitmq.util.Events;
 import com.nagarro.nagpassignment.ordermicroservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,9 +15,13 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderDao orderDao;
 
+    @Autowired
+    RabbitMQMessagingService rabbitMQMessagingService;
+
     @Override
     public void addOrder() {
-        orderDao.addOrder();
+        int orderId = orderDao.addOrder();
+        rabbitMQMessagingService.publishEvent(Events.ORDER_REQUEST_RECEIVED, Integer.valueOf(orderId));
     }
 
     @Override

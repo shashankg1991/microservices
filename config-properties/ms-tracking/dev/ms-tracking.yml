@@ -1,0 +1,7 @@
+rabbitmq:
+    queue:
+        publishing: logqueue
+        listening: logqueue
+security:
+  basic:
+    enabled: false

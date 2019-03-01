@@ -1,0 +1,8 @@
+rabbitmq:
+    queue:
+        publishing: orderqueue
+        listening: stockqueue
+    exchange: orderExchange
+security:
+  basic:
+    enabled: false

@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  rabbitmq:
+    image: 'rabbitmq:3-management'
+    ports:
+      - '15671:15671'
+      - '15672:15672'
+      - '25672:25672'
+      - '4369:4369'
+      - '5671:5671'
+      - '5672:5672'
+  config-server:
+    image: shashank1991/microservices-configserver:latest
+    expose:
+      - '8888'
+  eureka-server:
+    image: shashank1991/microservices-eurekaserver:latest
+    expose:
+      - '8761'
+  gateway-server:
+    image: shashank1991/microservices-gateway:latest
+    expose:
+      - '8765'
+  order-service:
+    image: shashank1991/microservices-ordermicroservice:latest
+    expose:
+      - '8081'
+  stock-service:
+    image: shashank1991/microservices-stockmicroservice:latest
+    expose:
+      - '8082'
+  tracking-service:
+    image: shashank1991/microservices-trackingmicroservice:latest
+    expose:
+      - '8083'

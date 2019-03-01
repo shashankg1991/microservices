@@ -1,3 +1,6 @@
 ordermicroservice.zip
 configserver.zip
 eurekaserver.zip
+trackingmicroservice.zip
+stockmicroservice.zip
+gateway.zip
